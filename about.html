@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - UPick</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/Collective.jpg" type="image/jpeg">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Collective.jpg" alt="UPick Logo" class="logo-img">
+                <h1><a href="index.html">UPick</a></h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="help.html" class="nav-link">Help</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h1>About UPick</h1>
+            
+            <div class="about-section">
+                <h2>What is UPick?</h2>
+                <div class="section-media-row">
+                    <div class="section-media-copy">
+                        <p>
+                            UPick is a simple web app that helps teams make decisions together.
+                            You can run vote-based decisions with participant limits and completion tracking,
+                            or use random selection for quick one-off choices.
+                        </p>
+                    </div>
+                    <div class="section-media-art">
+                        <img src="images/luckywheel.png" alt="Decision Making" class="section-illustration">
+                        <br><small><em>Every voice matters</em></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Features</h2>
+                <ul>
+                    <li>Create decisions in Vote or Random mode</li>
+                    <li>Track participant progress and vote totals after each submission</li>
+                    <li>Send completed vote decisions to the Completed section</li>
+                    <li>Keep random decisions available for repeated picks</li>
+                    <li>Use decision links to revisit voting rooms</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>How to Use</h2>
+                <ol>
+                    <li>Go to the <a href="index.html">Home</a></li>
+                    <li>Create a Vote or Random decision</li>
+                    <li>Invite participants to join vote decisions from Home</li>
+                    <li>Review updated progress from the Active Decisions section</li>
+                    <li>Use Complete Decision to archive finished vote decisions in Completed</li>
+                </ol>
+            </div>
+
+            <div class="about-section">
+                <h2>Technology Stack</h2>
+                <p>UPick is built entirely with custom code — no CMS is used. The languages and frameworks are:</p>
+                <ul>
+                    <li><strong>HTML5 &amp; CSS3</strong> — structure and responsive styling across all pages</li>
+                    <li><strong>JavaScript (ES6+)</strong> — all client-side interactivity and API communication</li>
+                    <li><strong>Node.js &amp; Express</strong> — server-side REST API that handles decisions, participants, and votes</li>
+                    <li><strong>MongoDB (via Mongoose)</strong> — NoSQL database that persists all decisions and vote data</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Hosting &amp; Domain</h2>
+                <p>
+                    UPick runs as a Node.js/Express server. The frontend static files are served directly by Express,
+                    so no separate web host is needed. For deployment the app is suited for platforms like
+                    <strong>Render</strong> or <strong>Railway</strong> because they support Node.js servers and allow a
+                    free-tier MongoDB Atlas connection via environment variables.
+                    A custom domain can be pointed to the deployed service through the platform's DNS settings.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>How the Database Is Used</h2>
+                <p>
+                    MongoDB stores every decision that users create, including its title, options, selection mode,
+                    participant list, and per-option vote tallies. Because data lives in the database rather than
+                    the browser, multiple participants can join the same decision from different devices and all
+                    see the same live vote counts. Completed decisions are also persisted so results are never lost
+                    when the page is refreshed.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Security</h2>
+                <ul>
+                    <li><strong>Helmet</strong> — sets secure HTTP response headers (X-Frame-Options, X-Content-Type-Options, HSTS, and more) to protect against common browser-based attacks</li>
+                    <li><strong>CORS allowlist</strong> — the API only accepts requests from explicitly permitted origins, blocking unauthorized cross-origin calls</li>
+                    <li><strong>Body size limit</strong> — incoming JSON payloads are capped at 10 KB, preventing oversized-payload attacks</li>
+                    <li><strong>Input length validation</strong> — decision titles, options, and participant names have server-side maximum lengths enforced by Mongoose validators</li>
+                    <li><strong>Duplicate-vote prevention</strong> — the server checks each voter's name before recording a vote, so a participant cannot vote more than once</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Student Project</h2>
+                <p>
+                    My name is Isaiah Gonzales and this app is a project for MGMT 460 - Management Information Systems at the
+                    University of New Mexico, Spring 2026.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Get Started</h2>
+                <p>
+                    Ready to try it out? <a href="index.html">Go to Home</a> to create your first decision!
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

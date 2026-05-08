@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPick - Collaborative Decisions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/Collective.jpg" type="image/jpeg">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Collective.jpg" alt="UPick Logo" class="logo-img">
+                <h1>UPick</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#dashboard" class="nav-link active">Home</a></li>
+                    <li><a href="#decisions" class="nav-link">Decisions</a></li>
+                    <li><a href="#history" class="nav-link">Completed</a></li>
+                    <li><a href="help.html" class="nav-link">Help</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section id="dashboard" class="section active">
+                <h2>Home</h2>
+                <div class="quick-actions">
+                    <h3>Start Here</h3>
+                    <div class="quick-hint">
+                        <img src="images/luckywheel.png" alt="Decision Wheel" class="quick-hint-icon">
+                        <span>Start collaborative decision-making</span>
+                    </div>
+                    <button class="btn btn-primary" id="upick">Create New Decision</button>
+                    <button class="btn btn-secondary" id="join-pick">Join Decision</button>
+                </div>
+
+                <div class="page-links">
+                    <h3>Try UPick</h3>
+                    <div class="links-grid">
+                        <a href="#" class="link-card" id="join-decision-card">
+                            <h4>Join Decision</h4>
+                            <p>Choose an active vote decision, join it by name, and head straight to the voting room</p>
+                        </a>
+                        <a href="vote.html" class="link-card">
+                            <h4>Voting Room</h4>
+                            <p>Open a decision-linked voting room when you already have a decision link</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+           
+            <section id="decisions" class="section">
+                <div class="section-header">
+                    <h2>Active Decisions</h2>
+                    <button class="btn btn-primary" id="add-decision-btn">Create Decision</button>
+                </div>
+                <div class="decisions-grid" id="decisions-container">
+                
+                </div>
+            </section>
+
+            <section id="history" class="section">
+                <div class="section-header">
+                    <h2>Completed Decisions</h2>
+                </div>
+                <div class="pick-grid" id="history-container">
+                    
+                </div>
+            </section>
+            
+            
+        </div>
+    </main>
+
+    
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <div class="modal-body" id="modal-body">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

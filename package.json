@@ -1,0 +1,48 @@
+{
+  "name": "collectivechoice",
+  "version": "1.0.0",
+  "description": "Collaborative Decision Making Platform",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "start:frontend": "npx serve .",
+    "dev:frontend": "npx live-server .",
+    "build": "echo 'No build process needed for vanilla HTML/CSS/JS'",
+    "lint": "npx eslint js/*.js",
+    "format": "npx prettier --write ."
+  },
+  "keywords": [
+    "queue",
+    "management",
+    "frontend",
+    "vanilla-js",
+    "responsive",
+    "spa"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.2",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
