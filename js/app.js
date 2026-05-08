@@ -120,6 +120,44 @@ class CollectiveChoice {
             });
         });
 
+        document.addEventListener('click', (e) => {
+            const actionButton = e.target.closest('[data-action]');
+
+            if (!actionButton) {
+                return;
+            }
+
+            const { action, decisionId } = actionButton.dataset;
+
+            if (action === 'close-modal') {
+                this.closeModal();
+                return;
+            }
+
+            if (!decisionId) {
+                return;
+            }
+
+            if (action === 'open-vote-room') {
+                this.openVoteRoom(decisionId);
+                return;
+            }
+
+            if (action === 'pick-random') {
+                this.pickRandomOption(decisionId);
+                return;
+            }
+
+            if (action === 'complete-decision') {
+                this.completeDecision(decisionId);
+                return;
+            }
+
+            if (action === 'view-decision') {
+                this.manageDecision(decisionId);
+            }
+        });
+
         document.getElementById('upick').addEventListener('click', () => {
             this.showCreateDecisionModal();
         });
@@ -199,7 +237,7 @@ class CollectiveChoice {
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Create Decision</button>
-                    <button type="button" class="btn btn-secondary" onclick="collectiveChoice.closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-action="close-modal">Cancel</button>
                 </div>
             </form>
         `;
@@ -243,7 +281,7 @@ class CollectiveChoice {
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Join Decision</button>
-                    <button type="button" class="btn btn-secondary" onclick="collectiveChoice.closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-action="close-modal">Cancel</button>
                 </div>
             </form>
         `;
@@ -282,7 +320,7 @@ class CollectiveChoice {
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Submit Vote</button>
-                    <button type="button" class="btn btn-secondary" onclick="collectiveChoice.closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-secondary" data-action="close-modal">Cancel</button>
                 </div>
             </form>
         `;
@@ -516,7 +554,7 @@ class CollectiveChoice {
             <h4>Options</h4>
             <ul>${optionsMarkup}</ul>
             <div class="form-actions">
-                <button type="button" class="btn btn-secondary" onclick="collectiveChoice.closeModal()">Close</button>
+                <button type="button" class="btn btn-secondary" data-action="close-modal">Close</button>
             </div>
         `;
 
@@ -615,12 +653,12 @@ class CollectiveChoice {
 
             const actionButton =
                 decision.selectionMode === 'vote'
-                    ? `<button class="btn btn-primary btn-sm" onclick="collectiveChoice.openVoteRoom('${decision.id}')">Open Voting Room</button>`
-                    : `<button class="btn btn-primary btn-sm" onclick="collectiveChoice.pickRandomOption('${decision.id}')">Random Pick</button>`;
+                    ? `<button type="button" class="btn btn-primary btn-sm" data-action="open-vote-room" data-decision-id="${decision.id}">Open Voting Room</button>`
+                    : `<button type="button" class="btn btn-primary btn-sm" data-action="pick-random" data-decision-id="${decision.id}">Random Pick</button>`;
 
             const completeButton =
                 isVote && decision.status === 'active'
-                    ? `<button class="btn btn-secondary btn-sm" onclick="collectiveChoice.completeDecision('${decision.id}')">Complete Decision</button>`
+                    ? `<button type="button" class="btn btn-secondary btn-sm" data-action="complete-decision" data-decision-id="${decision.id}">Complete Decision</button>`
                     : '';
 
             decisionCard.innerHTML = `
@@ -638,7 +676,7 @@ class CollectiveChoice {
                 </div>
                 <div class="decision-actions">
                     ${actionButton}
-                    <button class="btn btn-secondary btn-sm" onclick="collectiveChoice.manageDecision('${decision.id}')">View Details</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-action="view-decision" data-decision-id="${decision.id}">View Details</button>
                     ${completeButton}
                 </div>
             `;
