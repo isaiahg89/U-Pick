@@ -32,10 +32,14 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "live-server": "^1.2.2",
+    "live-server": "^1.2.0",
     "nodemon": "^3.1.10",
     "prettier": "^3.2.5",
     "serve": "^14.2.1"
+  },
+  "overrides": {
+    "braces": ">=3.0.3",
+    "micromatch": ">=4.0.8"
   },
   "engines": {
     "node": ">=14.0.0"
