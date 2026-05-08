@@ -71,22 +71,21 @@
                 <h2>Technology Stack</h2>
                 <p>UPick is built entirely with custom code — no CMS is used. The languages and frameworks are:</p>
                 <ul>
-                    <li><strong>HTML5 &amp; CSS3</strong> — structure and responsive styling across all pages</li>
-                    <li><strong>JavaScript (ES6+)</strong> — all client-side interactivity and API communication</li>
-                    <li><strong>Node.js &amp; Express</strong> — server-side REST API that handles decisions, participants, and votes</li>
-                    <li><strong>MongoDB (via Mongoose)</strong> — NoSQL database that persists all decisions and vote data</li>
+                    <li>HTML5 &amp; CSS3 — structure and  styling on all pages</li>
+                    <li>JavaScript  — API communication</li>
+                    <li>Node.js &amp; Express — server-side REST API that handles decisions, participants, and votes</li>
+                    <li>MongoDB (via Mongoose) — NoSQL database that persists all decisions and vote data</li>
                 </ul>
             </div>
 
             <div class="about-section">
                 <h2>Hosting &amp; Domain</h2>
                 <p>
-                    UPick runs as a Node.js/Express server. The frontend static files are served directly by Express,
+                     The frontend static files are served directly by Express,
                     so no separate web host is needed. For deployment the app is suited for platforms like
-                    <strong>Render</strong> or <strong>Railway</strong> because they support Node.js servers and allow a
+                    Render  because they support Node.js servers and allow a
                     free-tier MongoDB Atlas connection via environment variables.
-                    A custom domain can be pointed to the deployed service through the platform's DNS settings.
-                </p>
+                    </p>
             </div>
 
             <div class="about-section">
@@ -103,11 +102,10 @@
             <div class="about-section">
                 <h2>Security</h2>
                 <ul>
-                    <li><strong>Helmet</strong> — sets secure HTTP response headers (X-Frame-Options, X-Content-Type-Options, HSTS, and more) to protect against common browser-based attacks</li>
-                    <li><strong>CORS allowlist</strong> — the API only accepts requests from explicitly permitted origins, blocking unauthorized cross-origin calls</li>
-                    <li><strong>Body size limit</strong> — incoming JSON payloads are capped at 10 KB, preventing oversized-payload attacks</li>
-                    <li><strong>Input length validation</strong> — decision titles, options, and participant names have server-side maximum lengths enforced by Mongoose validators</li>
-                    <li><strong>Duplicate-vote prevention</strong> — the server checks each voter's name before recording a vote, so a participant cannot vote more than once</li>
+                    <li>Security headers are enabled through Helmet</li>
+                    <li>CORS is enabled so the frontend can call the API</li>
+                    <li>JSON requests are size-limited to reduce oversized payload risk</li>
+                    <li>Duplicate vote checks prevent the same participant from voting twice</li>
                 </ul>
             </div>
 

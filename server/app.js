@@ -12,13 +12,10 @@ const app = express();
 const publicRoot = path.resolve(__dirname, "..");
 
 // Security headers
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet());
 
-// Restrict CORS to same-origin and explicit allowed origins
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim())
-  : ["http://localhost:3000", "http://127.0.0.1:3000"];
-app.use(cors({ origin: allowedOrigins, methods: ["GET", "POST", "PUT", "PATCH", "DELETE"] }));
+// Keep CORS simple for this project so local and hosted frontends can call the API.
+app.use(cors());
 
 // Cap request body at 10 KB to prevent oversized payload attacks
 app.use(express.json({ limit: "10kb" }));
