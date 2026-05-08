@@ -7,10 +7,14 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 async function startServer() {
-  await connectDB();
+  const databaseConnected = await connectDB();
+
+  if (!databaseConnected) {
+    console.warn("[server] Starting without a database connection. Decision API routes will return 503 until MongoDB is reachable.");
+  }
 
   const server = app.listen(PORT, () => {
-    console.log(`[server] Running at http://localhost:${PORT}`);
+    console.log(`[server] Running on port ${PORT}`);
   });
 
   server.on("error", (error) => {
@@ -24,4 +28,7 @@ async function startServer() {
   });
 }
 
-startServer();
+startServer().catch((error) => {
+  console.error("[server] Fatal startup error:", error);
+  process.exit(1);
+});
