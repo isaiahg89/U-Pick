@@ -187,7 +187,7 @@ class CollectiveChoice {
                 </div>
                 <div class="form-group">
                     <label for="decision-options">Options (one per line):</label>
-                    <textarea id="decision-options" rows="5" required placeholder="Option A&#10;Option B&#10;Option C"></textarea>
+                    <textarea id="decision-options" rows="4" required placeholder="Option A&#10;Option B&#10;Option C"></textarea>
                 </div>
                 <div class="form-group" id="tally-group">
                     <label for="tally-target">Tallies Needed:</label>
